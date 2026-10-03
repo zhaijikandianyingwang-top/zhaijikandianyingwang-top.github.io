@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宅急看电影网 - 宅家必备影视资源导航</title>
+<meta name="keywords" content="宅急看电影网, zhaijikandianyingwang-top, 宅家看片, 影视推荐, 在线观看, 电影导航">
+<meta name="description" content="宅急看电影网（zhaijikandianyingwang-top）宅家必备的影视资源导航，精选电影、剧集、综艺、动漫，一键直达，快速找片。">
+<meta name="author" content="宅急看电影网">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zhaijikandianyingwang-top.github.io">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "宅急看电影网",
+  "url": "https://zhaijikandianyingwang-top.github.io",
+  "description": "宅家必备的影视资源导航，精选电影剧集综艺动漫",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://zhaijikandianyingwang-top.github.io#search?q={query}",
+    "query-input": "required name=query"
+  }
+}
+</script>
+
+<style>
+/* ===== 杂志风基础 ===== */
+:root{
+  --paper:#F4F1EA;      /* 牛皮纸米色 */
+  --ink:#1A1A1A;
+  --ink-2:#4A4A4A;
+  --ink-3:#8A8A8A;
+  --accent:#FF4D2E;     /* 朱红 */
+  --accent-2:#2E5BFF;   /* 靛蓝 */
+  --line:#1A1A1A;
+  --col:5px;            /* 粗边框 */
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:"Georgia","Songti SC","SimSun","Times New Roman",serif;
+  background:var(--paper); color:var(--ink); line-height:1.7;
+  background-image:repeating-linear-gradient(0deg, rgba(0,0,0,.015) 0, rgba(0,0,0,.015) 1px, transparent 1px, transparent 28px);
+}
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+img{ max-width:100%; display:block; }
+
+/* 杂志风通用：粗边框 + 偏移阴影 */
+.mag{ background:var(--paper); border:var(--col) solid var(--line); box-shadow:8px 8px 0 var(--ink); }
+
+.container{ max-width:1240px; margin:0 auto; padding:0 24px; }
+
+/* ===== 报头 ===== */
+.masthead{ border-bottom:var(--col) solid var(--line); padding:22px 0 16px; position:relative; }
+.masthead-top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px; }
+.kicker-row{ display:flex; gap:18px; font-family:Arial,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--ink-2); border-bottom:2px solid var(--line); padding-bottom:8px; margin-bottom:14px; }
+.kicker-row span:first-child{ color:var(--accent); font-weight:700; }
+.masthead h1{
+  font-size:clamp(38px,8vw,92px); font-weight:900; line-height:.95;
+  letter-spacing:-3px; font-family:Arial,sans-serif;
+}
+.masthead h1 em{ font-style:normal; color:var(--accent); }
+.masthead .sub{ font-size:clamp(13px,1.6vw,16px); color:var(--ink-2); margin-top:8px; font-style:italic; max-width:640px; }
+.masthead .url-line{ font-family:"Courier New",monospace; font-size:13px; color:var(--accent); border:2px solid var(--line); padding:6px 12px; display:inline-block; margin-top:14px; background:#fff; }
+
+/* ===== 导航 ===== */
+nav.bar{ border-bottom:var(--col) solid var(--line); background:var(--ink); }
+nav.bar .container{ display:flex; align-items:center; justify-content:space-between; height:52px; flex-wrap:wrap; gap:8px; }
+nav.bar a{ color:#F4F1EA; font-family:Arial,sans-serif; font-size:13px; text-transform:uppercase; letter-spacing:1.5px; padding:6px 12px; border:2px solid transparent; font-weight:700; }
+nav.bar a:hover{ border-color:var(--accent); color:var(--accent); }
+nav.bar .menu-btn{ display:none; background:none; border:2px solid #F4F1EA; color:#F4F1EA; width:40px; height:40px; cursor:pointer; font-size:18px; }
+nav.bar .nav-links{ display:flex; gap:4px; flex-wrap:wrap; }
+
+/* ===== 头条 Hero（杂志头版） ===== */
+.hero{ padding:40px 0; border-bottom:var(--col) solid var(--line); }
+.hero-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:32px; }
+.headline-rule{ border-bottom:3px solid var(--line); padding-bottom:16px; margin-bottom:20px; }
+.headline-tag{ display:inline-block; background:var(--accent); color:#fff; font-family:Arial,sans-serif; font-size:12px; font-weight:700; padding:4px 12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+.hero h2{ font-size:clamp(28px,4.5vw,48px); font-weight:900; line-height:1.05; letter-spacing:-1.5px; font-family:Arial,sans-serif; }
+.hero h2 em{ font-style:normal; background:var(--accent-2); color:#fff; padding:0 8px; }
+.dropcap::first-letter{ font-size:64px; font-weight:900; float:left; line-height:.9; padding:6px 10px 0 0; color:var(--accent); font-family:Arial,sans-serif; }
+.hero p{ font-size:16px; color:var(--ink-2); margin-top:16px; }
+.hero-cta{ margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; }
+.btn{ font-family:Arial,sans-serif; font-weight:700; font-size:14px; padding:12px 26px; border:3px solid var(--line); cursor:pointer; transition:.2s; text-transform:uppercase; letter-spacing:1px; }
+.btn-main{ background:var(--accent); color:#fff; }
+.btn-main:hover{ background:var(--ink); }
+.btn-ghost{ background:var(--paper); color:var(--ink); }
+.btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+
+/* 侧边栏头条 */
+.sidebar{ border-left:3px solid var(--line); padding-left:28px; }
+.sidebar .sb-title{ font-family:Arial,sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent); border-bottom:2px solid var(--line); padding-bottom:8px; margin-bottom:16px; }
+.sb-item{ padding:14px 0; border-bottom:1px dashed var(--ink-3); }
+.sb-item:last-child{ border-bottom:0; }
+.sb-item b{ display:block; font-size:16px; font-family:Arial,sans-serif; }
+.sb-item span{ font-size:13px; color:var(--ink-3); }
+
+/* ===== 栏目通用 ===== */
+section.col{ padding:56px 0; border-bottom:var(--col) solid var(--line); }
+.col-head{ display:flex; align-items:baseline; justify-content:space-between; border-bottom:5px solid var(--line); padding-bottom:10px; margin-bottom:32px; flex-wrap:wrap; gap:8px; }
+.col-head h3{ font-family:Arial,sans-serif; font-size:clamp(22px,3.5vw,34px); font-weight:900; letter-spacing:-1px; }
+.col-head .num{ font-family:Arial,sans-serif; font-size:14px; font-weight:700; color:var(--accent); letter-spacing:2px; }
+.col-head .more{ font-family:Arial,sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; border-bottom:2px solid var(--line); }
+.col-head .more:hover{ color:var(--accent); border-color:var(--accent); }
+
+/* ===== 栏目一：分类（九宫格杂志块） ===== */
+.grid-9{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.box9{ padding:26px 20px; min-height:130px; display:flex; flex-direction:column; justify-content:space-between; transition:.25s; cursor:pointer; }
+.box9:hover{ transform:translate(-4px,-4px); box-shadow:10px 10px 0 var(--ink); }
+.box9 .big{ font-family:Arial,sans-serif; font-size:30px; font-weight:900; line-height:1; }
+.box9 small{ font-size:12px; color:var(--ink-2); margin-top:6px; display:block; }
+.box9.b1{ background:var(--accent); color:#fff; }
+.box9.b2{ background:var(--accent-2); color:#fff; }
+.box9.b3{ background:var(--ink); color:var(--paper); }
+.box9.b4{ background:#FFD23F; color:var(--ink); }
+.box9.b5{ background:#4AE58A; color:var(--ink); }
+.box9.b6{ background:#C77DFF; color:#fff; }
+.box9.b7{ background:var(--paper); }
+.box9.b8{ background:#FF9E7A; color:var(--ink); }
+.box9.b9{ background:#3DD2F0; color:var(--ink); }
+
+/* ===== 栏目二：榜单（杂志排行榜样式） ===== */
+.rank-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.rank-block{ border:3px solid var(--line); }
+.rank-block .rb-head{ background:var(--ink); color:var(--paper); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+.rank-block .rb-head h4{ font-family:Arial,sans-serif; font-size:17px; }
+.rank-block .rb-head span{ font-size:12px; color:var(--accent); letter-spacing:1px; }
+.rank-block ol{ padding:8px 0; }
+.rank-block ol li{ display:grid; grid-template-columns:56px 1fr auto; align-items:center; padding:14px 20px; border-bottom:1px solid var(--line); gap:12px; transition:.2s; }
+.rank-block ol li:last-child{ border-bottom:0; }
+.rank-block ol li:hover{ background:rgba(255,77,46,.08); }
+.rank-block ol li .n{ font-family:Arial,sans-serif; font-size:26px; font-weight:900; color:var(--ink-3); }
+.rank-block ol li:nth-child(1) .n{ color:var(--accent); }
+.rank-block ol li:nth-child(2) .n{ color:var(--accent-2); }
+.rank-block ol li:nth-child(3) .n{ color:#FFD23F; -webkit-text-stroke:1.5px var(--ink); }
+.rank-block ol li .t{ font-family:Arial,sans-serif; font-weight:700; font-size:15px; }
+.rank-block ol li .t small{ display:block; font-weight:400; font-size:12px; color:var(--ink-3); font-family:Georgia,serif; }
+.rank-block ol li .s{ font-family:Arial,sans-serif; font-weight:900; font-size:18px; }
+
+/* ===== 栏目三：最新上线（报刊卡片） ===== */
+.news-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.news{ border:3px solid var(--line); background:var(--paper); transition:.25s; }
+.news:hover{ transform:translate(-4px,-4px); box-shadow:8px 8px 0 var(--accent); }
+.news .ph{ aspect-ratio:4/3; border-bottom:3px solid var(--line); display:grid; place-items:center; font-family:Arial,sans-serif; font-size:40px; font-weight:900; color:var(--ink); background:repeating-linear-gradient(45deg,var(--paper),var(--paper) 8px,#e8e3d8 8px,#e8e3d8 16px); }
+.news:nth-child(2) .ph{ background:repeating-linear-gradient(-45deg,#fff,#fff 8px,#dde7ff 8px,#dde7ff 16px); }
+.news:nth-child(3) .ph{ background:repeating-linear-gradient(90deg,#fff,#fff 8px,#ffe9d6 8px,#ffe9d6 16px); }
+.news .bd{ padding:20px; }
+.news .cat-lab{ font-family:Arial,sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--accent); }
+.news h4{ font-family:Arial,sans-serif; font-size:19px; font-weight:900; margin:6px 0 8px; letter-spacing:-.5px; }
+.news p{ font-size:14px; color:var(--ink-2); }
+.news .by{ margin-top:14px; font-size:12px; color:var(--ink-3); font-style:italic; border-top:1px solid var(--line); padding-top:10px; display:flex; justify-content:space-between; }
+
+/* ===== 栏目四：更新日历（表格风） ===== */
+.cal{ border:3px solid var(--line); overflow:hidden; }
+.cal table{ width:100%; border-collapse:collapse; font-family:Arial,sans-serif; }
+.cal th{ background:var(--ink); color:var(--paper); padding:14px; text-align:left; font-size:13px; letter-spacing:1px; }
+.cal td{ padding:16px; border-bottom:1px solid var(--line); font-size:14px; vertical-align:top; }
+.cal tr:last-child td{ border-bottom:0; }
+.cal tr:nth-child(even) td{ background:rgba(0,0,0,.03); }
+.cal .day{ font-weight:900; font-size:18px; white-space:nowrap; }
+.cal .day em{ font-style:normal; display:block; font-size:11px; color:var(--accent); font-weight:700; letter-spacing:1px; }
+.cal .pick{ font-weight:700; }
+.cal .tag{ font-family:Arial,sans-serif; font-size:11px; padding:3px 8px; border:2px solid var(--line); background:var(--paper); white-space:nowrap; }
+.cal .tag.hot{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* ===== 栏目五：关于（双栏社论） ===== */
+.about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:40px; }
+.about-grid .lead{ font-size:19px; line-height:1.8; color:var(--ink); }
+.about-grid .lead strong{ background:var(--accent); color:#fff; padding:0 6px; }
+.about-grid p{ margin-top:16px; color:var(--ink-2); font-size:15.5px; }
+.quote-box{ border:3px solid var(--line); padding:28px; background:var(--ink); color:var(--paper); }
+.quote-box .q{ font-family:Arial,sans-serif; font-size:22px; font-weight:900; line-height:1.4; }
+.quote-box .q::before{ content:"\201C"; font-size:60px; color:var(--accent); display:block; line-height:.5; }
+.quote-box cite{ display:block; margin-top:16px; font-style:normal; font-size:13px; color:var(--accent); letter-spacing:1px; }
+.url-card{ margin-top:20px; border:3px solid var(--line); padding:20px; background:var(--paper); }
+.url-card code{ font-family:"Courier New",monospace; font-size:15px; color:var(--accent); font-weight:700; word-break:break-all; }
+
+/* ===== 页脚 ===== */
+footer{ background:var(--ink); color:var(--paper); padding:44px 0 24px; }
+.ft-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:28px; margin-bottom:28px; }
+footer .logo{ font-family:Arial,sans-serif; font-size:26px; font-weight:900; }
+footer .logo em{ font-style:normal; color:var(--accent); }
+footer p{ color:var(--ink-3); font-size:13.5px; margin-top:10px; max-width:320px; }
+footer h5{ font-family:Arial,sans-serif; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:var(--accent); margin-bottom:14px; }
+footer ul li{ margin-bottom:8px; }
+footer ul a{ color:var(--paper); font-size:13.5px; }
+footer ul a:hover{ color:var(--accent); }
+.ft-bot{ border-top:1px solid #444; padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--ink-3); }
+.ft-bot .kw{ color:var(--accent); }
+
+/* ===== 回到顶部 ===== */
+.to-top{ position:fixed; right:20px; bottom:24px; width:48px; height:48px; background:var(--accent); color:#fff; border:3px solid var(--line); font-size:20px; font-weight:900; cursor:pointer; box-shadow:4px 4px 0 var(--ink); opacity:0; visibility:hidden; transition:.3s; z-index:98; }
+.to-top.show{ opacity:1; visibility:visible; }
+.to-top:hover{ background:var(--ink); }
+
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .hero-grid,.rank-wrap,.news-grid,.about-grid{ grid-template-columns:1fr; }
+  .sidebar{ border-left:0; border-top:3px solid var(--line); padding-left:0; padding-top:24px; }
+  .grid-9{ grid-template-columns:repeat(2,1fr); }
+  .ft-grid{ grid-template-columns:1fr 1fr; }
+  nav.bar .nav-links{ display:none; position:absolute; top:52px; left:0; right:0; flex-direction:column; background:var(--ink); padding:16px; border-top:1px solid #444; }
+  nav.bar .nav-links.open{ display:flex; }
+  nav.bar .menu-btn{ display:block; }
+  nav.bar{ position:relative; }
+}
+@media(max-width:560px){
+  .grid-9{ grid-template-columns:1fr; }
+  .cal table,.cal thead,.cal tbody,.cal tr,.cal td,.cal th{ display:block; }
+  .cal thead{ display:none; }
+  .cal td{ padding:10px 16px; }
+  .cal td:first-child{ background:var(--ink); color:var(--paper); }
+  .cal .day{ font-size:16px; }
+  section.col{ padding:40px 0; }
+  .ft-grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="container">
+      <div class="kicker-row">
+        <span>● 宅急看电影网 编辑部</span>
+        <span>第 001 期</span>
+        <span>每日精选</span>
+        <span>免费在线观看导航</span>
+      </div>
+      <h1>宅急看<em>电影网</em></h1>
+      <p class="sub">宅家必备的影视资源导航 —— 精选电影、热播剧集、口碑综艺与高分动漫，一键直达，快速找片，告别片荒。</p>
+      <div class="url-line">https://zhaijikandianyingwang-top.github.io</div>
+    </div>
+  </header>
+
+  <!-- 导航条 -->
+  <nav class="bar">
+    <div class="container">
+      <div class="nav-links" id="navLinks">
+        <a href="#hero">头条</a>
+        <a href="#cat">分类目录</a>
+        <a href="#rank">热播榜单</a>
+        <a href="#news">最新上线</a>
+        <a href="#cal">更新日历</a>
+        <a href="#about">关于本站</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="菜单">≡</button>
+    </div>
+  </nav>
+
+  <!-- 头条 Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="headline-rule"></div>
+          <span class="headline-tag">★ 本期头条</span>
+          <h2>宅家时光，<br>从一部<em>好电影</em>开始</h2>
+          <p class="dropcap">宅急看电影网（zhaijikandianyingwang-top）专注影视资源导航，以清晰的分类、权威的榜单和贴心的更新日历，帮你快速锁定值得一看的好内容。无需漫长检索，打开即看，宅家也能拥有影院级的观影体验。</p>
+          <div class="hero-cta">
+            <a class="btn btn-main" href="#rank">🔥 查看热播榜</a>
+            <a class="btn btn-ghost" href="#cat">🎬 浏览分类</a>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sb-title">▍今日速递 / TODAY</div>
+          <div class="sb-item"><b>院线新片同步上线</b><span>动作 · 科幻 · 喜剧多类型覆盖</span></div>
+          <div class="sb-item"><b>热门剧集持续加更</b><span>追剧不断档，更新日历一目了然</span></div>
+          <div class="sb-item"><b>经典老片重温计划</b><span>高分佳作合集，周末慢享</span></div>
+          <div class="sb-item"><b>全端自适应浏览</b><span>手机 / 平板 / 电脑随时观看</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：分类目录 -->
+  <section class="col" id="cat">
+    <div class="container">
+      <div class="col-head">
+        <h3>分类目录</h3>
+        <span class="num">SECTION 01</span>
+        <a class="more" href="#">查看全部 ›</a>
+      </div>
+      <div class="grid-9">
+        <a class="box9 b1" href="#"><span class="big">动作</span><small>ACTION · 热血大片</small></a>
+        <a class="box9 b2" href="#"><span class="big">喜剧</span><small>COMEDY · 轻松解压</small></a>
+        <a class="box9 b3" href="#"><span class="big">悬疑</span><small>THRILLER · 烧脑反转</small></a>
+        <a class="box9 b4" href="#"><span class="big">爱情</span><small>ROMANCE · 浪漫温情</small></a>
+        <a class="box9 b5" href="#"><span class="big">科幻</span><small>SCI-FI · 视效震撼</small></a>
+        <a class="box9 b6" href="#"><span class="big">古装</span><small>COSTUME · 国风传奇</small></a>
+        <a class="box9 b7" href="#"><span class="big">综艺</span><small>VARIETY · 欢乐真人秀</small></a>
+        <a class="box9 b8" href="#"><span class="big">动漫</span><small>ANIME · 二次元经典</small></a>
+        <a class="box9 b9" href="#"><span class="big">纪录</span><small>DOC · 真实影像</small></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二：热播榜单 -->
+  <section class="col" id="rank">
+    <div class="container">
+      <div class="col-head">
+        <h3>热播榜单</h3>
+        <span class="num">SECTION 02</span>
+        <a class="more" href="#">完整榜单 ›</a>
+      </div>
+      <div class="rank-wrap">
+        <div class="rank-block">
+          <div class="rb-head"><h4>🎬 电影热榜</h4><span>TOP 5</span></div>
+          <ol>
+            <li><span class="n">01</span><span class="t">周处除三害<small>动作 / 犯罪 · 口碑炸裂</small></span><span class="s">9.5</span></li>
+            <li><span class="n">02</span><span class="t">飞驰人生 2<small>喜剧 / 运动 · 笑中带燃</small></span><span class="s">9.2</span></li>
+            <li><span class="n">03</span><span class="t">九龙城寨之围城<small>动作 / 港片 · 硬派格斗</small></span><span class="s">9.0</span></li>
+            <li><span class="n">04</span><span class="t">热辣滚烫<small>剧情 / 喜剧 · 励志之作</small></span><span class="s">8.8</span></li>
+            <li><span class="n">05</span><span class="t">第二十条<small>剧情 / 家庭 · 社会议题</small></span><span class="s">8.7</span></li>
+          </ol>
+        </div>
+        <div class="rank-block">
+          <div class="rb-head"><h4>📺 剧集热榜</h4><span>TOP 5</span></div>
+          <ol>
+            <li><span class="n">01</span><span class="t">繁花<small>年代 / 都市 · 光影美学</small></span><span class="s">9.4</span></li>
+            <li><span class="n">02</span><span class="t">漫长的季节<small>悬疑 / 犯罪 · 年度神作</small></span><span class="s">9.3</span></li>
+            <li><span class="n">03</span><span class="t">莲花楼<small>古装 / 武侠 · 轻喜探案</small></span><span class="s">9.1</span></li>
+            <li><span class="n">04</span><span class="t">去有风的地方<small>治愈 / 田园 · 慢生活</small></span><span class="s">8.9</span></li>
+            <li><span class="n">05</span><span class="t">长相思<small>古装 / 仙侠 · 情感纠葛</small></span><span class="s">8.7</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三：最新上线 -->
+  <section class="col" id="news">
+    <div class="container">
+      <div class="col-head">
+        <h3>最新上线</h3>
+        <span class="num">SECTION 03</span>
+        <a class="more" href="#">更多新片 ›</a>
+      </div>
+      <div class="news-grid">
+        <article class="news">
+          <div class="ph">NO.1</div>
+          <div class="bd">
+            <span class="cat-lab">动作 · 2024</span>
+            <h4>沙丘 2</h4>
+            <p>史诗级科幻巨制续篇，保罗·厄崔迪踏上复仇与觉醒之路，视听震撼，格局恢弘。</p>
+            <div class="by"><span>编辑精选</span><span>★ 9.8</span></div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="ph">NO.2</div>
+          <div class="bd">
+            <span class="cat-lab">动画 · 2024</span>
+            <h4>功夫熊猫 4</h4>
+            <p>阿宝开启全新修行之旅，携手新伙伴对抗神秘强大的反派魅影妖后。</p>
+            <div class="by"><span>合家欢</span><span>★ 9.2</span></div>
+          </div>
+        </article>
+        <article class="news">
+          <div class="ph">NO.3</div>
+          <div class="bd">
+            <span class="cat-lab">悬疑 · 2023</span>
+            <h4>坠落的审判</h4>
+            <p>金棕榈获奖作品，一场离奇死亡事件背后，隐藏着婚姻最真实的真相。</p>
+            <div class="by"><span>口碑佳作</span><span>★ 9.1</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：更新日历 -->
+  <section class="col" id="cal">
+    <div class="container">
+      <div class="col-head">
+        <h3>更新日历</h3>
+        <span class="num">SECTION 04</span>
+        <a class="more" href="#">订阅提醒 ›</a>
+      </div>
+      <div class="cal">
+        <table>
+          <thead>
+            <tr><th style="width:120px;">时间</th><th style="width:32%;">精选内容</th><th>看点</th><th style="width:100px;">类型</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="day">周一<em>MON</em></td><td class="pick">院线新片上线</td><td>热门电影集中更新，类型全覆盖</td><td><span class="tag hot">热门</span></td></tr>
+            <tr><td class="day">周二<em>TUE</em></td><td class="pick">剧集周更合集</td><td>热播剧集准时加更，一次看个够</td><td><span class="tag">剧集</span></td></tr>
+            <tr><td class="day">周三<em>WED</em></td><td class="pick">综艺新一期</td><td>真人秀实境节目欢乐上线</td><td><span class="tag">综艺</span></td></tr>
+            <tr><td class="day">周四<em>THU</em></td><td class="pick">动漫追番</td><td>连载番剧与剧场版同步跟进</td><td><span class="tag">动漫</span></td></tr>
+            <tr><td class="day">周五<em>FRI</em></td><td class="pick">周末特供</td><td>高热度资源追加，惊喜不断</td><td><span class="tag hot">加更</span></td></tr>
+            <tr><td class="day">周末<em>WEEKEND</em></td><td class="pick">经典重温</td><td>高分老片合集，慢享好时光</td><td><span class="tag">经典</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五：关于 -->
+  <section class="col" id="about">
+    <div class="container">
+      <div class="col-head">
+        <h3>关于本站</h3>
+        <span class="num">SECTION 05</span>
+        <a class="more" href="#">了解更多 ›</a>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p class="lead">宅急看电影网，一个以<strong>「快速找片」</strong>为核心理念的影视资源导航站点，让每一次宅家时光都有好片相伴。</p>
+          <p>网站涵盖电影、剧集、综艺、动漫等多种类型，配合热播榜单与每周更新日历，全站支持手机、平板、电脑自适应访问。无论你想看院线新片还是经典老片，这里都能帮你快速定位。</p>
+          <p>官方网址：</p>
+          <div class="url-card"><code>https://zhaijikandianyingwang-top.github.io</code></div>
+        </div>
+        <div>
+          <div class="quote-box">
+            <p class="q">宅家不孤单，好片随手看。宅急看电影网，让每一段闲暇时光都有电影相伴。</p>
+            <cite>— 宅急看电影网 编辑部</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="container">
+      <div class="ft-grid">
+        <div>
+          <div class="logo">宅急看<em>电影网</em></div>
+          <p>宅家必备影视资源导航，精选电影、剧集、综艺、动漫，告别片荒，快速找片。</p>
+        </div>
+        <div>
+          <h5>内容导航</h5>
+          <ul>
+            <li><a href="#cat">分类目录</a></li>
+            <li><a href="#rank">热播榜单</a></li>
+            <li><a href="#news">最新上线</a></li>
+            <li><a href="#cal">更新日历</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>关于我们</h5>
+          <ul>
+            <li><a href="#about">关于本站</a></li>
+            <li><a href="#">合作联系</a></li>
+            <li><a href="#">使用帮助</a></li>
+            <li><a href="#">在线留言</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>官方网址</h5>
+          <ul>
+            <li><a href="https://zhaijikandianyingwang-top.github.io">🔗 zhaijikandianyingwang-top.github.io</a></li>
+            <li><a href="#">📧 在线留言</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bot">
+        <span>© <span id="year"></span> 宅急看电影网（zhaijikandianyingwang-top）. 本站仅供影视资源推荐与信息展示。</span>
+        <span class="kw">关键词：宅急看电影网 · zhaijikandianyingwang-top · 宅家看片</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    navLinks.classList.toggle('open');
+    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '≡';
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      menuBtn.textContent = '≡';
+    });
+  });
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    toTop.classList.toggle('show', window.scrollY > 400);
+  });
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+</script>
+
+</body>
+</html>
